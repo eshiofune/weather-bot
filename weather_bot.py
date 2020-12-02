@@ -5,7 +5,7 @@ nlp = spacy.load("en_core_web_md")
 
 def get_weather(city_name):
   response = requests.get("https://api.openweathermap.org/data/2.5/weather?q=" +
-    city_name + "&APPID=e92ca0281f5d8ea59285a2b529627a2f").json()
+    city_name + "&APPID=API_KEY").json()
   weather = response["weather"][0]["description"]
 
   return weather
