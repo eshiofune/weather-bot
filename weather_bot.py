@@ -1,5 +1,5 @@
 import spacy
-import requests
+from security import safe_requests
 
 nlp = spacy.load("en_core_web_md")
 
@@ -8,7 +8,7 @@ api_key = "your_api_key"
 def get_weather(city_name):
     api_url = "http://api.openweathermap.org/data/2.5/weather?q={}&appid={}".format(city_name, api_key)
 
-    response = requests.get(api_url)
+    response = safe_requests.get(api_url)
     response_dict = response.json()
 
     weather = response_dict["weather"][0]["description"]
